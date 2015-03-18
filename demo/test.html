@@ -4,28 +4,26 @@
     <meta charset="UTF-8">
     <title>MaxRectsBinPack demo</title>
     <style>
-        .rect{
-            position: absolute;
-        }
-
-        #container{
-            position: relative;
-            background: rgba(0, 0, 0, .1);
+        img{
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div id="container"></div>
+    <canvas id="texture"></canvas>
+    <img id="anim1" src="http://06wj.github.io/flash2animation/demo/anim1.png">
+    <img id="anim2" src="http://06wj.github.io/flash2animation/demo/anim2.png">
     <script src="../src/MaxRectsBinPack.js"></script>
     <script src="./data.js"></script>
     <script>
-        var imgUrl = "http://06wj.github.io/flash2animation/demo/";
-        var container = document.querySelector("#container");
-        var textureWidth = 400;
+        var canvas = document.querySelector("#texture");
+        var ctx = canvas.getContext("2d");
+        var textureWidth = 300;
         var textureHeight = 300;
-        container.style.width = textureWidth + "px";
-        container.style.height = textureHeight + "px";
+        canvas.width = textureWidth;
+        canvas.height = textureHeight;
 
+        //create rects
         var rects = [];
         ["anim1", "anim2"].forEach(function(name, i){
             var data = window[name];
@@ -34,31 +32,27 @@
                 rects.push({
                     width:t.w,
                     height:t.h,
-                    data:{
-                        image:imgUrl + name + ".png",
-                        x:t.x,
-                        y:t.y
-                    }
+                    imgName:name,
+                    imgX:t.x,
+                    imgY:t.y
                 });
             }
         });
 
         var pack = new MaxRectsBinPack(textureWidth, textureHeight, false);
-        var res = pack.insert2(rects, 1);
+        var result = pack.insert2(rects, 0);
 
-        res.forEach(function(rect){
-            var div = document.createElement("div");
-            div.className = "rect";
-            var style = div.style;
-            style.width = rect.width + "px";
-            style.height = rect.height + "px";
-            style.left = rect.x + "px";
-            style.top = rect.y + "px";
-            style.background = "url(" + rect.data.image + ") no-repeat";
-            style.backgroundPosition = -rect.data.x + "px " + (-rect.data.y) + "px";
+        var imgs = {
+            anim1:document.querySelector("#anim1"),
+            anim2:document.querySelector("#anim2")
+        };
 
-            container.appendChild(div)
-        });
+        //draw rects
+        window.onload = function(){
+            result.forEach(function(rect){
+                ctx.drawImage(imgs[rect.imgName], rect.imgX, rect.imgY, rect.width, rect.height, rect.x, rect.y, rect.width, rect.height);
+            });
+        }
     </script>
 </body>
 </html>
