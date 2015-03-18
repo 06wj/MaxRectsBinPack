@@ -1,0 +1,9 @@
+{
+  "name": "MaxRectsBinPack",
+  "version": "1.0.0",
+  "devDependencies": {
+    "gulp": "3.x.x",
+    "gulp-uglify": "~0.3.1",
+    "gulp-rimraf": "~0.1.0"
+  }
+}

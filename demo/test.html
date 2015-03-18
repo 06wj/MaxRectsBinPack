@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MaxRectsBinPack demo</title>
+    <style>
+        .rect{
+            position: absolute;
+        }
+
+        #container{
+            position: relative;
+            background: rgba(0, 0, 0, .1);
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script src="../src/MaxRectsBinPack.js"></script>
+    <script src="./data.js"></script>
+    <script>
+        var imgUrl = "http://06wj.github.io/flash2animation/demo/";
+        var container = document.querySelector("#container");
+        var textureWidth = 400;
+        var textureHeight = 300;
+        container.style.width = textureWidth + "px";
+        container.style.height = textureHeight + "px";
+
+        var rects = [];
+        ["anim1", "anim2"].forEach(function(name, i){
+            var data = window[name];
+            for(var i in data){
+                var t = data[i];
+                rects.push({
+                    width:t.w,
+                    height:t.h,
+                    data:{
+                        image:imgUrl + name + ".png",
+                        x:t.x,
+                        y:t.y
+                    }
+                });
+            }
+        });
+
+        var pack = new MaxRectsBinPack(textureWidth, textureHeight, false);
+        var res = pack.insert2(rects, 1);
+
+        res.forEach(function(rect){
+            var div = document.createElement("div");
+            div.className = "rect";
+            var style = div.style;
+            style.width = rect.width + "px";
+            style.height = rect.height + "px";
+            style.left = rect.x + "px";
+            style.top = rect.y + "px";
+            style.background = "url(" + rect.data.image + ") no-repeat";
+            style.backgroundPosition = -rect.data.x + "px " + (-rect.data.y) + "px";
+
+            container.appendChild(div)
+        });
+    </script>
+</body>
+</html>
