@@ -4,15 +4,36 @@
     <meta charset="UTF-8">
     <title>MaxRectsBinPack demo</title>
     <style>
-        img{
-            display: none;
+        h3, div, body{
+            margin: 0;
+            padding: 0;
+        }
+        .source{
+
+        }
+
+        .source img{
+            height: 300px;
+            border: 1px solid #aaa;
+        }
+
+        h3{
+            margin-top: 5px;
+        }
+
+        canvas{
+            border: 1px solid #aaa;
         }
     </style>
 </head>
 <body>
+    <h3>source image</h3>
+    <div class="source">
+        <img id="anim1" src="http://g.alicdn.com/tmapp/animation-data/2.2.41/tahiti/demo/data/anim1.png">
+        <img id="anim2" src="http://g.alicdn.com/tmapp/animation-data/2.2.41/tahiti/demo/data/anim2.png">
+    </div>
+    <h3>merged image</h3>
     <canvas id="texture"></canvas>
-    <img id="anim1" src="http://06wj.github.io/flash2animation/demo/anim1.png">
-    <img id="anim2" src="http://06wj.github.io/flash2animation/demo/anim2.png">
     <script src="../src/MaxRectsBinPack.js"></script>
     <script src="./data.js"></script>
     <script>
