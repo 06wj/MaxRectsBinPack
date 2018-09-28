@@ -34,7 +34,7 @@
     </div>
     <h3>merged image</h3>
     <canvas id="texture"></canvas>
-    <script src="../src/MaxRectsBinPack.js"></script>
+    <script src="../build/MaxRectsBinPack.js"></script>
     <script src="./data.js"></script>
     <script>
         var canvas = document.querySelector("#texture");
@@ -60,8 +60,8 @@
             }
         });
 
-        var pack = new MaxRectsBinPack(textureWidth, textureHeight, false);
-        var result = pack.insert2(rects, 0);
+        var pack = new MaxRectsBinPack.MaxRectsBinPack(textureWidth, textureHeight, false);
+        var result = pack.insert2(rects, MaxRectsBinPack.BestShortSideFit);
 
         var imgs = {
             anim1:document.querySelector("#anim1"),

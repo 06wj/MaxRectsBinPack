@@ -1,9 +1,35 @@
 {
   "name": "MaxRectsBinPack",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "main": "build/MaxRectsBinPack.js",
+  "description": "MaxRectsBinPack",
+  "scripts": {
+    "watch": "webpack --watch --env.development",
+    "dev": "npm run watch",
+    "release": "webpack -p",
+    "eslint-fix": "eslint --fix ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:06wj/MaxRectsBinPack.git"
+  },
+  "keywords": [
+    "MaxRectsBinPack",
+    "pack",
+    "texture"
+  ],
+  "author": "06wj",
+  "license": "MIT",
   "devDependencies": {
-    "gulp": "3.x.x",
-    "gulp-uglify": "~0.3.1",
-    "gulp-rimraf": "~0.1.0"
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
+    "wrapper-webpack-plugin": "^2.0.0"
   }
 }
