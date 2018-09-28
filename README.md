@@ -2,7 +2,7 @@
 MaxRects Algorithm javascript implementation
 
 ### demo
-* [demo](http://06wj.github.io/MaxRectsBinPack/demo/test.html)
+* [demo](https://06wj.github.io/MaxRectsBinPack/demo/test.html)
 
 ### usage
 * init pack
