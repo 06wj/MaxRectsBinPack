@@ -1,30 +1,42 @@
-# rects-bin-pack [![npm][npm-image]][npm-url]
+# rects-bin-pack [![npm][npm-image]][npm-url] [![runkit][runkit-image]][runkit-url]
 MaxRects Algorithm JavaScript implementation
 
 ### demo
 * [demo](https://06wj.github.io/MaxRectsBinPack/demo/test.html)
 
 ### usage
-* init pack
+* init bin pack
     ```
     /**
     * MaxRectanglesBinPack
-    * @param {Number} width container width
-    * @param {Number} height container height
-    * @param {Boolean} allowRotate whether allowRotate
+    * @param {Number} width The container width
+    * @param {Number} height The container height
+    * @param {Boolean} [allowRotate=false] Whether to allow rotate the rects
     */
-    const pack = new MaxRectsBinPack.MaxRectsBinPack(512, 512, false);
+    const pack = new MaxRectsBinPack.MaxRectsBinPack(512, 256, false);
     ```
-* add rects
+* add rectangles
     ```
-    const rects = [{width:1, height:2}, {width:2, height:3}, {width:10, height:2}];
+    const rectangles = [{
+        width: 20,
+        height: 100,
+        id: '1'
+    }, {
+        width: 200,
+        height: 70,
+        id: '2'
+    }, {
+        width: 30,
+        height: 70,
+        id: '3'
+    }];
     /**
      * Insert a set of rectangles
-     * @param  {Rect[]} rects a set of rects
-     * @param  {Number} method the pack rule, allow value is BestShortSideFit, BestLongSideFit, BestAreaFit, BottomLeftRule, ContactPointRule
+     * @param  {Rect[]} rectangles The set of rects, allow custum property
+     * @param  {Number} method The pack rule, allow value is BestShortSideFit, BestLongSideFit, BestAreaFit, BottomLeftRule, ContactPointRule
      * @return {Rect[]} The result of bin pack.
      */
-    const result = pack.insert2(rects, MaxRectsBinPack.BestShortSideFit)
+    const result = pack.insert2(rectangles, MaxRectsBinPack.BestShortSideFit)
     ```
 
 ### Dev
@@ -37,3 +49,5 @@ MaxRects Algorithm JavaScript implementation
 
 [npm-image]: https://img.shields.io/npm/v/rects-bin-pack.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/rects-bin-pack
+[runkit-image]: https://badge.runkitcdn.com/rects-bin-pack.svg
+[runkit-url]: https://npm.runkit.com/rects-bin-pack

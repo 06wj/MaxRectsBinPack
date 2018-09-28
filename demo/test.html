@@ -44,13 +44,13 @@
         canvas.width = textureWidth;
         canvas.height = textureHeight;
 
-        //create rects
-        var rects = [];
+        //create rectangles
+        var rectangles = [];
         ["anim1", "anim2"].forEach(function(name, i){
             var data = window[name];
             for(var i in data){
                 var t = data[i];
-                rects.push({
+                rectangles.push({
                     width:t.w,
                     height:t.h,
                     imgName:name,
@@ -61,17 +61,17 @@
         });
 
         var pack = new MaxRectsBinPack.MaxRectsBinPack(textureWidth, textureHeight, false);
-        var result = pack.insert2(rects, MaxRectsBinPack.BestShortSideFit);
+        var result = pack.insert2(rectangles, MaxRectsBinPack.BestShortSideFit);
 
         var imgs = {
             anim1:document.querySelector("#anim1"),
             anim2:document.querySelector("#anim2")
         };
 
-        //draw rects
+        //draw rectangles
         window.onload = function(){
-            result.forEach(function(rect){
-                ctx.drawImage(imgs[rect.imgName], rect.imgX, rect.imgY, rect.width, rect.height, rect.x, rect.y, rect.width, rect.height);
+            result.forEach(function(rectangle){
+                ctx.drawImage(imgs[rectangle.imgName], rectangle.imgX, rectangle.imgY, rectangle.width, rectangle.height, rectangle.x, rectangle.y, rectangle.width, rectangle.height);
             });
         }
     </script>

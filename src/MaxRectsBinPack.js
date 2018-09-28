@@ -25,11 +25,11 @@ const ContactPointRule = 4; // /< -CP: Choosest the placement where the Rectangl
 class MaxRectsBinPack {
     /**
      * @constructor
-     * @param {Number} width 容器宽度
-     * @param {Number} height 容器高度
-     * @param {Boolean} allowRotate 是否允许旋转
+     * @param {Number} width The container width
+     * @param {Number} height The container height
+     * @param {Boolean} [allowRotate=false] Whether to allow rotate the rects
      */
-    constructor(width, height, allowRotate) {
+    constructor(width, height, allowRotate = false) {
         this.binWidth = 0;
         this.binHeight = 0;
         this.allowRotate = false;
@@ -42,9 +42,9 @@ class MaxRectsBinPack {
 
     /**
      * 初始化
-     * @param {Number} width 容器宽度
-     * @param {Number} height 容器高度
-     * @param {Boolean} allowRotate 是否允许旋转
+     * @param {Number} width The container width
+     * @param {Number} height The container height
+     * @param {Boolean} allowRotate Whether to allow rotate the rects
      */
     init(width, height, allowRotate) {
         this.binWidth = width;
@@ -58,9 +58,9 @@ class MaxRectsBinPack {
 
     /**
      * insert a new rect
-     * @param  {Number} width  矩形宽
-     * @param  {Number} height 矩形高
-     * @param  {Number} method 分配方法 0~4
+     * @param  {Number} width  The width of the rect
+     * @param  {Number} height The height of the rect
+     * @param  {Number} method The pack rule, allow value is BestShortSideFit, BestLongSideFit, BestAreaFit, BottomLeftRule, ContactPointRule
      * @return {Rect}
      */
     insert(width, height, method) {
@@ -102,10 +102,10 @@ class MaxRectsBinPack {
     }
 
     /**
-     * 插入一组矩形
-     * @param  {Array} rectangles 矩形数组
-     * @param  {Number} method 分配方法 0~4
-     * @return {Array} 成功插入的数组
+     * Insert a set of rectangles
+     * @param  {Rect[]} rectangles The set of rects, allow custum property.
+     * @param  {Number} method The pack rule, allow value is BestShortSideFit, BestLongSideFit, BestAreaFit, BottomLeftRule, ContactPointRule
+     * @return {Rect[]} The result of bin pack.
      */
     insert2(rectangles, method) {
         const res = [];

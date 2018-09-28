@@ -21,6 +21,7 @@
   ],
   "author": "06wj",
   "license": "MIT",
+  "runkitExampleFilename":"demo/runkit.js",
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
