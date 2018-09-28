@@ -1,6 +1,6 @@
 {
   "name": "rects-bin-pack",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "build/MaxRectsBinPack.js",
   "description": "MaxRects Algorithm javascript implementation",
   "scripts": {

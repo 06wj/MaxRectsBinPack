@@ -1,5 +1,5 @@
 # rects-bin-pack [![npm][npm-image]][npm-url]
-MaxRects Algorithm javascript implementation
+MaxRects Algorithm JavaScript implementation
 
 ### demo
 * [demo](https://06wj.github.io/MaxRectsBinPack/demo/test.html)
