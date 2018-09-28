@@ -1,12 +1,11 @@
 {
-  "name": "MaxRectsBinPack",
-  "version": "0.1.0",
+  "name": "rects-bin-pack",
+  "version": "0.1.1",
   "main": "build/MaxRectsBinPack.js",
-  "description": "MaxRectsBinPack",
+  "description": "MaxRects Algorithm javascript implementation",
   "scripts": {
-    "watch": "webpack --watch --env.development",
-    "dev": "npm run watch",
-    "release": "webpack -p",
+    "dev": "webpack --watch --env.development",
+    "build": "webpack -p",
     "eslint-fix": "eslint --fix ./src"
   },
   "repository": {
@@ -15,7 +14,9 @@
   },
   "keywords": [
     "MaxRectsBinPack",
+    "MaxRects",
     "pack",
+    "rect",
     "texture"
   ],
   "author": "06wj",
